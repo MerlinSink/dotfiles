@@ -43,33 +43,34 @@ return {
         noremap = true,
         nowait = true,
       },
-       filesystem = {
-          filtered_items = {
-            visible = false, -- when true, they will just be displayed differently than normal items
-            hide_dotfiles = true,
-            hide_gitignored = true,
+      filesystem = {
+        filtered_items = {
+          visible = false,   -- when true, they will just be displayed differently than normal items
+          hide_dotfiles = true,
+          hide_gitignored = true,
 
-            hide_hidden = true, -- only works on Windows for hidden files/directories
-            hide_by_name = {
-              --"node_modules"
+          hide_hidden = true,   -- only works on Windows for hidden files/directories
+          hide_by_name = {
+            --"node_modules"
 
-            },
-            hide_by_pattern = { -- uses glob style patterns
-              --"*.meta",
-              --"*/src/*/tsconfig.json",
-            },
-            always_show = { -- remains visible even if other settings would normally hide it
-              --".gitignored",
-              ".ccls",
-            },
-            never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-              --".DS_Store",
-              --"thumbs.db"
-            },
-            never_show_by_pattern = { -- uses glob style patterns
-              --".null-ls_*",
-            },
           },
+          hide_by_pattern = {   -- uses glob style patterns
+            --"*.meta",
+            --"*/src/*/tsconfig.json",
+          },
+          always_show = {   -- remains visible even if other settings would normally hide it
+            --".gitignored",
+            ".ccls",
+          },
+          never_show = {   -- remains hidden even if visible is toggled to true, this overrides always_show
+            --".DS_Store",
+            --"thumbs.db"
+          },
+          never_show_by_pattern = {   -- uses glob style patterns
+            --".null-ls_*",
+          },
+        },
+      },
       mappings = {
         ["<space>"] = "none",
         ["<2-LeftMouse>"] = "open",
@@ -89,23 +90,23 @@ return {
           -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
           -- some commands may take optional config options, see `:h neo-tree-mappings` for details
           config = {
-            show_path = "none"     -- "none", "relative", "absolute"
+            show_path = "none" -- "none", "relative", "absolute"
           }
         },
-        ["A"] = "add_directory",     -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
+        ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
         ["d"] = "delete",
         ["r"] = "rename",
         ["y"] = "copy_to_clipboard",
         ["x"] = "cut_to_clipboard",
         ["p"] = "paste_from_clipboard",
-        ["c"] = "copy",     -- takes text input for destination, also accepts the optional config.show_path option like "add":
+        ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
         -- ["c"] = {
         --  "copy",
         --  config = {
         --    show_path = "none" -- "none", "relative", "absolute"
         --  }
         --}
-        ["m"] = "move",     -- takes text input for destination, also accepts the optional config.show_path option like "add".
+        ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
         ["q"] = "close_window",
         ["R"] = "refresh",
         ["?"] = "show_help",
