@@ -51,3 +51,6 @@ keymap("n", "<RIGHT>", ":vertical resize -5<CR>", opts)
 keymap("n", "tj", ":tabe<CR>", opts)
 -- map("n", "th", ":-tabnext<CR>", opts)
 -- map("n", "tl", ":+tabnext<CR>", opts)
+--
+-- lazy.nvim
+keymap("n", "<leader>ll", "<cmd>Lazy<Cr>", opts)
