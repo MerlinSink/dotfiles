@@ -94,6 +94,10 @@ return {
       return {
         options = {
           theme = "dracula",
+          -- other chooce
+          --    
+          component_separators = { left = '▎', right = '▎' },
+          section_separators = { left = ' ', right = ' ' },
           globalstatus = true,
           disabled_filetypes = { statusline = { "dashboard", "alpha" } },
         },

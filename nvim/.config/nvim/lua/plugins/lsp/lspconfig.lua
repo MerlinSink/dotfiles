@@ -72,7 +72,7 @@ return {
       -- ["*"] = function(server, opts) end,
     },
   },
- 
+
   config = function(_, opts)
 
     -- diagnostics

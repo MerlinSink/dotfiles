@@ -54,8 +54,8 @@ return {
         end
 
         -- stylua: ignore start
-        map("n", "]h", gs.next_hunk, "Next Hunk")
-        map("n", "[h", gs.prev_hunk, "Prev Hunk")
+        map("n", "<leader>gj", gs.next_hunk, "Next Hunk")
+        map("n", "<leader>gk", gs.prev_hunk, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
@@ -80,9 +80,9 @@ return {
     keys = {
       { "]t",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
       { "[t",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-      { "<leader>xt", "<cmd>TodoTrouble<cr>",                              desc = "Todo (Trouble)" },
-      { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",      desc = "Todo/Fix/Fixme (Trouble)" },
-      { "<leader>st", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
+      { "<leader>tt", "<cmd>TodoTrouble<cr>",                              desc = "Todo (Trouble)" },
+      { "<leader>tT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",      desc = "Todo/Fix/Fixme (Trouble)" },
+      { "<leader>ft", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
     },
   },
 
@@ -125,12 +125,17 @@ return {
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
-    opts = { use_diagnostic_signs = true },
+    opts = {
+      position = "bottom", -- position of the list can be: bottom, top, left, right
+      height = 10,         -- height of the trouble list when position is top or bottom
+      width = 25,          -- width of the list when position is left or right
+      use_diagnostic_signs = true,
+    },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List (Trouble)" },
+      { "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document Diagnostics (Trouble)" },
+      { "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+      { "<leader>tl", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List (Trouble)" },
+      { "<leader>tq", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List (Trouble)" },
       {
         "[q",
         function()
@@ -164,58 +169,42 @@ return {
         -- enables copy sync. by default, all registers are synchronized.
         -- to control which registers are synced, see the `sync_*` options.
         enable = true,
-
         -- ignore specific tmux buffers e.g. buffer0 = true to ignore the
         -- first buffer or named_buffer_name = true to ignore a named tmux
         -- buffer with name named_buffer_name :)
         ignore_buffers = { empty = false },
-
         -- TMUX >= 3.2: all yanks (and deletes) will get redirected to system
         -- clipboard by tmux
         redirect_to_clipboard = false,
-
         -- offset controls where register sync starts
         -- e.g. offset 2 lets registers 0 and 1 untouched
         register_offset = 0,
-
         -- overwrites vim.g.clipboard to redirect * and + to the system
         -- clipboard using tmux. If you sync your system clipboard without tmux,
         -- disable this option!
-
         sync_clipboard = true,
-
         -- synchronizes registers *, +, unnamed, and 0 till 9 with tmux buffers.
         sync_registers = true,
-
         -- syncs deletes with tmux clipboard as well, it is adviced to
-
         -- do so. Nvim does not allow syncing registers 0 and 1 without
         -- overwriting the unnamed register. Thus, ddp would not be possible.
         sync_deletes = true,
-
         -- syncs the unnamed register with the first buffer entry from tmux.
         sync_unnamed = true,
       },
-
       navigation = {
         -- cycles to opposite pane while navigating into the border
         cycle_navigation = true,
-
         -- enables default keybindings (C-hjkl) for normal mode
-
         enable_default_keybindings = true,
-
         -- prevents unzoom tmux when navigating beyond vim border
         persist_zoom = false,
       },
       resize = {
         -- enables default keybindings (A-hjkl) for normal mode
-
         enable_default_keybindings = true,
-
         -- sets resize steps for x axis
         resize_step_x = 1,
-
         -- sets resize steps for y axis
         resize_step_y = 1,
       }
