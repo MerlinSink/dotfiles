@@ -1,4 +1,3 @@
----@type LazyVimConfig
 local M = {}
 
 local defaults = {
