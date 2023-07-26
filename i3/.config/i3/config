@@ -1,5 +1,5 @@
 # font for window titles and bar
-font pango:Sauce Code Pro, Noto Scans Mono CJK SC 18
+font pango:Sauce Code Pro, Noto Scans Mono CJK SC 16
 
 # use win key
 set $mod Mod1
@@ -52,19 +52,19 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
-bar {
-  colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
-
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
-}
+# bar {
+#   colors {
+#     background #282A36
+#     statusline #F8F8F2
+#     separator  #44475A
+#
+#     focused_workspace  #44475A #44475A #F8F8F2
+#     active_workspace   #282A36 #44475A #F8F8F2
+#     inactive_workspace #282A36 #282A36 #BFBFBF
+#     urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#     binding_mode       #FF5555 #FF5555 #F8F8F2
+#   }
+# }
 
 # set specific windows to floating mode
 for_window [window_role="app"]                      floating enable
@@ -117,9 +117,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-# bindsym $mod+h split h
+# bindsym $mod+Shift+u split h
 # split in vertical orientation
-# bindsym $mod+v split v
+# bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -219,10 +219,10 @@ bindsym $mod+Shift+r reload
 bindsym $mod+r mode "  "
 mode "  " {
     # same bindings, but for the arrow keys
-    bindsym Left    resize shrink width 4 px or 4 ppt
-    bindsym Down    resize grow height 4 px or 4 ppt
-    bindsym Up      resize shrink height 4 px or 4 ppt
-    bindsym Right   resize grow width 4 px or 4 ppt
+    bindsym h    resize shrink width 4 px or 4 ppt
+    bindsym j    resize grow height 4 px or 4 ppt
+    bindsym k    resize shrink height 4 px or 4 ppt
+    bindsym l    resize grow width 4 px or 4 ppt
 
     # back to normal: Enter or win+r
     bindsym Return mode "default"
@@ -240,9 +240,10 @@ mode "  " {
 exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/
 # exec_always --no-startup-id  sh ~/.config/i3/start.sh
 
-exec_always --no-startup-id picom -c
+exec_always --no-startup-id picom -b
 # exec_always --no-startup-id fcitx5
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
-exec_always --no-startup-id bash ~/clash-for-linux/start.sh
 exec_always --no-startup-id xmodmap ~/.Xmodmap
+exec_always --no-startup-id clash
+exec_always --no-startup-id ibus-daemon
 # exec_always --no-startup-id copyq
