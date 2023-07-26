@@ -30,7 +30,8 @@ font:
     family: SauceCodePro Nerd Font Mono
     style: Bold Italic
 
-  size: 12
+  size: 16
+live_config_reload: true
 
 window:
   # 窗口大小
@@ -63,4 +64,6 @@ scrolling:
   auto_scroll: true
 
 import:
-   - ~/.config/alacritty/theme/dracula.yml
+   - ~/.config/alacritty/theme/nord.yaml
+   # - ~/.config/alacritty/theme/dracula.yml
+
