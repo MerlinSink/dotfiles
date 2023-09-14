@@ -17,6 +17,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins.lsp" },
 		{ import = "plugins.cmp" },
+		{ import = "plugins.dap" },
 		{ import = "plugins" },
 	},
 	defaults = {
