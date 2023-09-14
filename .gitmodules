@@ -2,6 +2,10 @@
 	path = .config/ranger/plugins/devicons2
 	url = https://github.com/cdump/ranger-devicons2
 
-[submodule ".config/tmux/plugins/tmux"]
-	path = .config/tmux/plugins/tmux
+[submodule ".config/tmux/plugins/tpm"]
+	path = .config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+
+[submodule ".config/tmux/plugins/tmux-sensible"]
+  path = .config/tmux/plugins/tmux-sensible
+  url = https://github.com/tmux-plugins/tmux-sensible
